@@ -7,17 +7,20 @@ const userSchema = new Schema({
         firstName: {
             type: String,
             trim: true,
-            min: [2, 'Too short, min is 4 characters'],
+            min: [4, 'Too short, min is 4 characters'],
             max: [32, 'Too long, max is 32 characters']
         },
 
         lastName: {
             type: String,
             trim: true,
-            min: [2, 'Too short, min is 4 characters'],
+            min: [4, 'Too short, min is 4 characters'],
             max: [32, 'Too long, max is 32 characters']
         },
-	},
+    },
+    // username: {
+    //     type: String
+    // },
 
 	email: { 
 		type : String,
@@ -39,24 +42,17 @@ const userSchema = new Schema({
 
     phoneNo: {
         type: Number,
-        min: 10,
-        max: 10,
+        min: 1000000000,
+        max: 9999999999,
         required : true
     },
 
-    address: {
-        loaclity: {
-            type: String,
-            min: [4, 'Too short, min is 4 characters'],
-            max: [32, 'Too long, max is 32 characters'], 
-            required : true
-        },
-        zipCode: {
-            type: Number,
-            min: 100000,
-            max: 999999
+    roles: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Role"
         }
-    }
+      ]
 	// employees : [{type : Schema.Types.ObjectId, ref : 'Employee'}]
 
 });
