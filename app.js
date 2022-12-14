@@ -53,7 +53,7 @@ var corsOptions = {
 
 //   simple test route 
 app.get('/', (req, res) => {
-    res.json({ message: 'welcome to rhope home' });
+    res.json({ message: 'welcome to Jobs home' });
 })
 
 // routes
